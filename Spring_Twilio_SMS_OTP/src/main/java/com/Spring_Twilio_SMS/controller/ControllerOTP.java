@@ -1,6 +1,7 @@
 package com.Spring_Twilio_SMS.controller;
 
 import com.Spring_Twilio_SMS.request_data.OTPRequest;
+import com.Spring_Twilio_SMS.request_data.VerifyOtpRequest;
 import com.Spring_Twilio_SMS.service.ServiceOTP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +23,12 @@ public class ControllerOTP {
     @PostMapping
     public void sendOTP( @RequestBody OTPRequest otpRequest){
         serviceOTP.sendOTP(otpRequest) ;
+
+    }
+
+    @PostMapping("/verify")
+    public  void  verifyOTP( @RequestBody VerifyOtpRequest verifyOtpRequest){
+    serviceOTP.CheckOtp(verifyOtpRequest);
 
     }
 }

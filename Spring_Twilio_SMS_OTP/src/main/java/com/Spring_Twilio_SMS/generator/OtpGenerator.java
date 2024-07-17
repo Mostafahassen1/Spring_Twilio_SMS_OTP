@@ -8,13 +8,17 @@ public class OtpGenerator {
      private  String otp ;
     public  String message ;
 
-    public String getMessage() {
+    public String getGenerateOtp() {
         otp = generateOtp(6);
-        message = "Your OTP is: " + otp;
+        message = otp;
         return message;
     }
+    public String getOtp(){
+        return otp;
+    }
 
-    public String generateOtp(int length) {
+
+    private String generateOtp(int length) {
         SecureRandom random = new SecureRandom();
         StringBuilder otp = new StringBuilder();
         for (int i = 0; i < length; i++) {

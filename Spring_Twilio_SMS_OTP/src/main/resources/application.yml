@@ -5,3 +5,6 @@ twilio:
   authToken:  ${TWILIO_AUTH_TOKEN}
   phoneNumber: ${TWILIO_PHONE_NUMBER}
 
+spring:
+  redis:
+    password : ${REDIS_PASSWORD}
