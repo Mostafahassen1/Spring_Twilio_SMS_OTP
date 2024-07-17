@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 @Service("twilio")
 public class TwilioSmsSender implements TwilioSenderSms {
-  private static final Logger LOGGER = LoggerFactory.getLogger(TwilioSmsSender.class) ;
   private  final TwilioConfiguration twilioConfiguration ;
 
   @Autowired
@@ -28,7 +27,7 @@ public class TwilioSmsSender implements TwilioSenderSms {
           String message = smsRequest.getMessage();
           MessageCreator creator =Message.creator(to , from , message) ;
           creator.create();
-          LOGGER.info("Send sms {}", smsRequest);
+
       }
       else{
           throw new IllegalArgumentException(
@@ -38,7 +37,7 @@ public class TwilioSmsSender implements TwilioSenderSms {
     }
 
     private boolean isPhoneNumberValid(String phoneNumber) {
-        // implement here , to check the number is valued or not
+        // implement here , to check the number is valued or not based on the rules of country EGY -> +20
       return true ;
     }
 }

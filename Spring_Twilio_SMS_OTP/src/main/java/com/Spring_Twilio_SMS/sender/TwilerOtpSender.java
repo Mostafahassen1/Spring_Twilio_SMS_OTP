@@ -54,9 +54,7 @@ public class TwilerOtpSender implements TwilioSenderOtp, TwilioSenderVerifyOtp {
             redisTemplate.delete(otpKey);
         }
 
-        // Add the new OTP with TTL
         redisTemplate.opsForValue().set(otpKey, otpCode, Duration.ofMinutes(TIME_TO_LIVE));
-        //LOGGER.info("OTP {} for phone number {} has been added to Redis.", otpCode, phoneNumber);
     }
 
     @Override
@@ -66,9 +64,7 @@ public class TwilerOtpSender implements TwilioSenderOtp, TwilioSenderVerifyOtp {
 
         String otpKey = OTP_PREFIX + phoneNumber;
         String storedOTP = redisTemplate.opsForValue().get(otpKey);
-       // LOGGER.info("Redis ---------Key: {}, Value---------: {} the------ Number: {} " ,otpKey , storedOTP , otpCode);
-        // Log all data in Redis for debugging
-      //  logAllRedisData();
+
 
         if (storedOTP != null && storedOTP.equals(otpCode) ){
             redisTemplate.delete(otpKey); // Delete the OTP after successful validation
@@ -78,17 +74,5 @@ public class TwilerOtpSender implements TwilioSenderOtp, TwilioSenderVerifyOtp {
         return false;
     }
 
-//    private void logAllRedisData() {
-//        // Fetch all keys with the pattern for OTPs
-//        Set<String> keys = redisTemplate.keys(OTP_PREFIX + "*");
-//
-//        if (keys != null) {
-//            for (String key : keys) {
-//                String value = redisTemplate.opsForValue().get(key);
-//                LOGGER.info("Redis Key: {}, Value: {}", key, value);
-//            }
-//        } else {
-//            LOGGER.info("No keys found in Redis.");
-//        }
-//    }
+
 }
