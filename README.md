@@ -66,6 +66,9 @@ Before running your application, handle sensitive information using environment 
 ``
 ![image](https://github.com/user-attachments/assets/a7922cd1-5d85-4e8b-88cc-c3c01966445c)
 
+![image](https://github.com/user-attachments/assets/d166a4bc-ebf5-4ea8-9cdf-f9d0c6ed44bd)
+
+
   ### 2. Generate OTP
 
 - **Endpoint:** `POST localhost:8080/api/v1/otp`
@@ -93,6 +96,9 @@ Before running your application, handle sensitive information using environment 
 
   ```
   ![image](https://github.com/user-attachments/assets/13652bbc-a987-4302-b444-30b09fee436b)
+
+  ![image](https://github.com/user-attachments/assets/71f3fc66-f9b7-4f38-a9a0-7ff30f6f61ea)
+
 
   Note: The OTP number is valid for 6 minutes only. This time can be changed from the code.
 
