@@ -75,6 +75,10 @@ Before running your application, handle sensitive information using environment 
       "PhoneNumber": "+201006332994"
   }
 
+``
+  ![image](https://github.com/user-attachments/assets/86f8abd2-386b-415f-aff7-d54d384c7edd)
+
+
 ### 3. Verify OTP
 
 - **Endpoint:** `POST localhost:8080/api/v1/otp/verify `
