@@ -91,7 +91,7 @@ Before running your application, handle sensitive information using environment 
   ```json
   {
       "PhoneNumber": "+201006332994",
-      "OtpNumber": "123456"
+      "OtpNumber": "185653"
   }
 
   ```
