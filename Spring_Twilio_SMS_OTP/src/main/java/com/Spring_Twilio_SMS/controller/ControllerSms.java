@@ -1,9 +1,11 @@
 package com.Spring_Twilio_SMS.controller;
 
 
+import com.Spring_Twilio_SMS.exception.ErrorResponse;
 import com.Spring_Twilio_SMS.service.ServiceSms;
 import com.Spring_Twilio_SMS.request_data.SmsRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,7 @@ public class ControllerSms {
     }
 
     @PostMapping
-    public void sendSms( @RequestBody SmsRequest smsRequest ){
-        service.sendSms(smsRequest);
+    public ResponseEntity<ErrorResponse> sendSms(@RequestBody SmsRequest smsRequest ){
+       return  service.sendSms(smsRequest);
     }
 }

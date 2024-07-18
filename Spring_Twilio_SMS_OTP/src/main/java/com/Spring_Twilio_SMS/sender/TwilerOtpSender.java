@@ -19,7 +19,7 @@ import java.time.Duration;
 public class TwilerOtpSender implements TwilioSenderOtp, TwilioSenderVerifyOtp {
 
     private static final String OTP_PREFIX = "otp:";
-    private static final int TIME_TO_LIVE = 1; // in minutes
+    private static final int TIME_TO_LIVE = 6 ; // in minutes
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TwilerOtpSender.class);
     private final TwilioConfiguration twilioConfiguration;
