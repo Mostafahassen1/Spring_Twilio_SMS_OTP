@@ -61,10 +61,12 @@ Before running your application, handle sensitive information using environment 
   ```json
   {
       "PhoneNumber": "+201006332994",
-      "Message": "Hi, I'm Mostafa Hussien. Welcome to the APP!"
+      "Message": "the massage From Mostafa "
   }
 
 ``
+![image](https://github.com/user-attachments/assets/a7922cd1-5d85-4e8b-88cc-c3c01966445c)
+
   ### 2. Generate OTP
 
 - **Endpoint:** `POST localhost:8080/api/v1/otp`
@@ -89,6 +91,17 @@ Before running your application, handle sensitive information using environment 
       "PhoneNumber": "+201006332994",
       "OtpNumber": "123456"
   }
+
+  ```
+  Note: The OTP number is valid for 6 minutes only. This time can be changed from the code.
+
+```java
+// Example line in TwilioOtpSender class
+private static final int TIME_TO_LIVE = 6; // in minutes
+
+```
+
+  
 
 
   
