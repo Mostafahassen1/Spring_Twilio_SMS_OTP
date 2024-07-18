@@ -82,6 +82,7 @@ Before running your application, handle sensitive information using environment 
 ``
   ![image](https://github.com/user-attachments/assets/86f8abd2-386b-415f-aff7-d54d384c7edd)
 
+  ![image](https://github.com/user-attachments/assets/71f3fc66-f9b7-4f38-a9a0-7ff30f6f61ea)
 
 ### 3. Verify OTP
 
@@ -97,7 +98,7 @@ Before running your application, handle sensitive information using environment 
   ```
   ![image](https://github.com/user-attachments/assets/13652bbc-a987-4302-b444-30b09fee436b)
 
-  ![image](https://github.com/user-attachments/assets/71f3fc66-f9b7-4f38-a9a0-7ff30f6f61ea)
+
 
 
   Note: The OTP number is valid for 6 minutes only. This time can be changed from the code.
