@@ -13,3 +13,10 @@ This project demonstrates how to use Spring Boot to send SMS messages and genera
 - **Spring Data Redis:** Used for integrating Redis into the Spring application for OTP storage.
 - **Docker Compose:** Used for containerizing the application and managing multiple containers.
 - **Maven:** The build automation tool used for managing project dependencies and building the application.
+
+
+## Prerequisites
+- JDK 17 or higher
+- Maven
+- Docker and Docker Compose
+- Active Twilio account with a valid email address
