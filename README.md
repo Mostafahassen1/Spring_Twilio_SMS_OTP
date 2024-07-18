@@ -1,6 +1,5 @@
 # Spring_Twilio_SMS_OTP
 
-
 ## Introduction
 This project demonstrates how to use Spring Boot to send SMS messages and generate OTPs (One-Time Passwords) using Twilio. It includes integration with Redis to store OTPs after they are generated, utilizes Docker Compose for containerized deployments, and provides functionality to validate OTPs when users submit them for verification.
 
