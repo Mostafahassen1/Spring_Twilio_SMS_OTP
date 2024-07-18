@@ -20,3 +20,72 @@ This project demonstrates how to use Spring Boot to send SMS messages and genera
 - Maven
 - Docker and Docker Compose
 - Active Twilio account with a valid email address
+
+## Before Running the Project
+
+Before running your project, ensure you have completed the following steps:
+
+1. **Implement Email in Twilio:**
+   - Ensure your Twilio account is configured with a valid email address for sending SMS messages and OTP Number .
+
+2. **Implement Docker Compose:**
+   - Set up Docker Compose for containerized deployment of your application and Redis.
+
+### Handling Environment Variables for Sensitive Information
+
+Before running your application, handle sensitive information using environment variables. Follow these steps:
+
+#### Create a `.env` File:
+
+1. **Create a .env File:**
+   - Create a file named `.env` in the root directory of your project.
+   - Add your sensitive information to this file in the format `KEY=VALUE`.
+
+   **Example `.env` file:**
+   ```plaintext
+   TWILIO_ACCOUNT_SID=your_twilio_account_sid
+   TWILIO_AUTH_TOKEN=your_twilio_auth_token
+   TWILIO_PHONE_NUMBER=your_twilio_phone_number
+   REDIS_PASSWORD=your_redis_password
+
+
+## After Running the Project
+
+### Endpoints
+
+### 1. Send SMS
+
+- **Endpoint:** `POST  localhost:8080/api/api/v1/sms`
+- **Description:** Endpoint to send a SMS message to a specific phone number.
+- **Request Body:**
+  ```json
+  {
+      "PhoneNumber": "+201006332994",
+      "Message": "Hi, I'm Mostafa Hussien. Welcome to the APP!"
+  }
+
+``
+  ### 2. Generate OTP
+
+- **Endpoint:** `POST localhost:8080/api/v1/otp`
+- **Description:** Endpoint to generate OTP and send it via SMS to a specified phone number.
+- **Request Body:**
+  ```json
+  {
+      "PhoneNumber": "+201006332994"
+  }
+
+### 3. Verify OTP
+
+- **Endpoint:** `POST localhost:8080/api/v1/otp/verify `
+- **Description:** Endpoint to verify the OTP entered ( OtpNumber ) by the user for a specific phone number.
+- **Request Body:**
+  ```json
+  {
+      "PhoneNumber": "+201006332994",
+      "OtpNumber": "123456"
+  }
+
+
+  
+
