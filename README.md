@@ -93,6 +93,8 @@ Before running your application, handle sensitive information using environment 
   }
 
   ```
+  ![image](https://github.com/user-attachments/assets/13652bbc-a987-4302-b444-30b09fee436b)
+
   Note: The OTP number is valid for 6 minutes only. This time can be changed from the code.
 
 ```java
