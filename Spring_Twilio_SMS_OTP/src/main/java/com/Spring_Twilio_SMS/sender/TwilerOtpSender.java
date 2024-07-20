@@ -36,13 +36,24 @@ public class TwilerOtpSender implements TwilioSenderOtp, TwilioSenderVerifyOtp {
 
     @Override
     public void SendOtp(OTPRequest otpRequest) {
+
+        if (! isPhoneNumberFromTwilioValid()) {
+            throw new IllegalArgumentException("Phone number cannot be null or empty");
+        }
+
         PhoneNumber to = new PhoneNumber(otpRequest.getPhoneNumber());
         PhoneNumber from = new PhoneNumber(twilioConfiguration.getPhoneNumber());
         String message =  "Your OTP is: " + otpGenerator.getGenerateOtp();
+
         MessageCreator creator = Message.creator(to, from, message);
         creator.create();
         addOTP(otpRequest.getPhoneNumber(), otpGenerator.getOtp() );
 
+    }
+
+    private boolean isPhoneNumberFromTwilioValid( ) {
+        String fromNumber = twilioConfiguration.getPhoneNumber();
+        return fromNumber != null && !fromNumber.trim().isEmpty();
     }
 
     @Override
@@ -60,7 +71,7 @@ public class TwilerOtpSender implements TwilioSenderOtp, TwilioSenderVerifyOtp {
     @Override
     public boolean isOTPValid(VerifyOtpRequest verifyOtpRequest) {
         String phoneNumber = verifyOtpRequest.getPhoneNumber();
-        String otpCode = verifyOtpRequest.getOtpNumber();
+        String otpCode = verifyOtpRequest.getotpnumber();
 
         String otpKey = OTP_PREFIX + phoneNumber;
         String storedOTP = redisTemplate.opsForValue().get(otpKey);

@@ -23,12 +23,11 @@ public class ServiceOTP {
 
     public ResponseEntity<ErrorResponse> sendOTP(OTPRequest otpRequest){
 
-
         try {
             twilerSenderOTP.SendOtp(otpRequest);
             return ResponseEntity.ok(new ErrorResponse(HttpStatus.OK.value(), "OTP sent successfully"));
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to send OTP", e);
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to send OTP");
         }
 
     }
@@ -37,9 +36,12 @@ public class ServiceOTP {
 
         boolean result = twilerSenderOTP.isOTPValid(verifyOtpRequest);
         if (!result) {
+
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "This number OTP is not valid");
+
         } else {
-            throw new ResponseStatusException(HttpStatus.OK, "The number OTP is valid");
+            ErrorResponse successResponse = new ErrorResponse(HttpStatus.OK.value(), "The number OTP is valued .");
+            return new ResponseEntity<>(successResponse, HttpStatus.ACCEPTED);
         }
     }
 }

@@ -25,8 +25,8 @@ public class ControllerOTP {
 
     @PostMapping
     public ResponseEntity<ErrorResponse> sendOTP(@RequestBody OTPRequest otpRequest){
-        return serviceOTP.sendOTP(otpRequest) ;
 
+        return serviceOTP.sendOTP(otpRequest);
     }
 
     @PostMapping("/verify")
