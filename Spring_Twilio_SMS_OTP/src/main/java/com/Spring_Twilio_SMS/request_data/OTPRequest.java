@@ -4,10 +4,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class OTPRequest {
 
-    private final String phoneNumber ;  // distinction
+    @JsonProperty("phone_number")
+    private final String phoneNumber;  // using camelCase for field name
 
-    public OTPRequest( @JsonProperty("PhoneNumber") String phoneNumber) {
+    public OTPRequest(String phoneNumber) {
+        validatePhoneNumber(phoneNumber);
         this.phoneNumber = phoneNumber;
+    }
+
+    private void validatePhoneNumber(String phoneNumber) {
+        if (phoneNumber == null || phoneNumber.trim().isEmpty()) {
+            throw new IllegalArgumentException("Phone number cannot be null or empty");
+        }
     }
 
     public String getPhoneNumber() {
