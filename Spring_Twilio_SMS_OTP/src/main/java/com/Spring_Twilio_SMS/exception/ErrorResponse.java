@@ -17,4 +17,12 @@ public class ErrorResponse {
     public String getMessage() {
         return message;
     }
+
+    public void setStatusCode(int statusCode) {
+        this.statusCode = statusCode;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }
