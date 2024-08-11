@@ -26,9 +26,12 @@ Before running your project, ensure you have completed the following steps:
 
 1. **Implement Email in Twilio:**
    - Ensure your Twilio account is configured with a valid email address for sending SMS messages and OTP Number .
-
-2. **Implement Docker Compose:**
-   - Set up Docker Compose for containerized deployment of your application and Redis.
+   - we will  connect our project with twilio with yml file by
+      ```yaml
+     TWILIO_ACCOUNT_SID: your_twilio_account_sid
+     TWILIO_AUTH_TOKEN: your_twilio_auth_token
+     TWILIO_PHONE_NUMBER: your_twilio_phone_number
+     ```
 
 ### Handling Environment Variables for Sensitive Information
 
@@ -41,12 +44,12 @@ Before running your application, handle sensitive information using environment 
    - Add your sensitive information to this file in the format `KEY=VALUE`.
 
    **Example `.env` file:**
-   ```plaintext
+   ```yaml
    TWILIO_ACCOUNT_SID=your_twilio_account_sid
    TWILIO_AUTH_TOKEN=your_twilio_auth_token
    TWILIO_PHONE_NUMBER=your_twilio_phone_number
    REDIS_PASSWORD=your_redis_password
-
+   ```
 
 ## After Running the Project
 
